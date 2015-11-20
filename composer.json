@@ -1,0 +1,19 @@
+{
+    "name": "poznet/arraypaginator",
+    "description": "Simple  array pagination in view ",
+    "homepage": "https://github.com/poznet/Array-Paginator",
+    "license": "MIT",
+    
+    "require": {
+        "php": ">=5.3"
+       
+    },
+    "autoload": {         
+          "psr-0": { 
+              "Poznet\\ArrayPaginatorBundle": "src" 
+              }
+         
+         
+    } 
+
+}
