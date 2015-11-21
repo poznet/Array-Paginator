@@ -9,10 +9,12 @@
 namespace Poznet\ArrayPaginatorBundle\Services;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 
 class ArrayPaginator
 {
+    private $container;
     private $target;
     private $perpage=20;
     private $pages;
@@ -20,15 +22,22 @@ class ArrayPaginator
     private $page=0;
 
 
-    public function __construct(){
+    public function __construct(ContainerInterface $containerInterface){
+        $this->container=$containerInterface;
+        if($this->container->hasParameter('poznet_array_paginator')){
+            $param=$this->container->getParameter('poznet_array_paginator');
+            if(!empty($param['perpage']))
+                $this->perpage=$param['perpage'];
+        }
 
     }
 
     public function paginate(Array $target ){
+
         $this->target=$target;
         $this->count=count($target);
         $this->pages=ceil($this->count/$this->perpage);
-        $request=Request::createFromGlobals();
+        $request=$this->container->get('request_stack')->getCurrentRequest();
         $strona=$request->get('strona');
 
         if($strona){
@@ -45,7 +54,7 @@ class ArrayPaginator
 
     public function paginationForView(){
         $output='';
-        $request=Request::createFromGlobals();
+        $request=$this->container->get('request_stack')->getCurrentRequest();
 
         for($i=0;$i<$this->pages;$i++){
             if($i==$request->get('strona')){
@@ -62,3 +71,4 @@ class ArrayPaginator
 
     }
 }
+

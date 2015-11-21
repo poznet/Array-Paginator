@@ -15,7 +15,7 @@ class ArrayPaginationExtension extends \Twig_Extension
 {
     private $container;
 
-    public function __construct($container){
+    public function __construct(ContainerInterface $container){
         $this->container=$container;
     }
 
@@ -37,3 +37,4 @@ class ArrayPaginationExtension extends \Twig_Extension
         return 'array.pagginatortwig.extension';
     }
 }
+

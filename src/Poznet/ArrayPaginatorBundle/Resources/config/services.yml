@@ -1,9 +1,11 @@
 services:
     poznet.array.paginator:
         class: Poznet\ArrayPaginatorBundle\Services\ArrayPaginator
+        arguments: ['@service_container']
 
     poznet.paginator.twig_extension:
             class: Poznet\ArrayPaginatorBundle\Twig\Extension\ArrayPaginationExtension
             arguments: [ @service_container ]
             tags:
                 - { name: twig.extension }
+
