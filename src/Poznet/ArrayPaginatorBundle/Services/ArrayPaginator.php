@@ -27,8 +27,8 @@ class ArrayPaginator
         $this->request_stack=$request_stack;
         $this->paramr=$param;
 
-            if(!empty($this->param['perpage'] ))
-                $this->perpage=$this->param['perpage'] ;
+            if(!empty($this->param[0]['perpage'] ))
+                $this->perpage=$this->param[0]['perpage'] ;
 
 
     }
