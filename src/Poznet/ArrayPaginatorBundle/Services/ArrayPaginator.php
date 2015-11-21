@@ -9,7 +9,6 @@
 namespace Poznet\ArrayPaginatorBundle\Services;
 
 
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 
 class ArrayPaginator
@@ -20,15 +19,15 @@ class ArrayPaginator
     private $pages;
     private $count;
     private $page=0;
+    private $param;
 
 
-    public function __construct(ContainerInterface $containerInterface){
-        $this->container=$containerInterface;
-        if($this->container->hasParameter('poznet_array_paginator')){
-            $param=$this->container->getParameter('poznet_array_paginator');
+    public function __construct($param=null){
+        $this->paramr=$param;
+
             if(!empty($param['perpage']))
                 $this->perpage=$param['perpage'];
-        }
+
 
     }
 
