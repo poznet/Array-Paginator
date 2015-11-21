@@ -8,7 +8,7 @@
 
 namespace Poznet\ArrayPaginatorBundle\Services;
 
-use Symfony\Component\HttpFoundation\Request;
+
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 
