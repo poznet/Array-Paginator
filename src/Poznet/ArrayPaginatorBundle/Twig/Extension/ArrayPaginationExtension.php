@@ -8,7 +8,7 @@
 
 namespace Poznet\ArrayPaginatorBundle\Twig\Extension;
 
-use Poznet\ArrayPaginatorBundle\Services\ArrayPaginator as Paginator
+use Poznet\ArrayPaginatorBundle\Services\ArrayPaginator as Paginator;
 
 
 class ArrayPaginationExtension extends \Twig_Extension
