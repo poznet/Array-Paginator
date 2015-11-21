@@ -1,7 +1,7 @@
 services:
     poznet.array.paginator:
         class: Poznet\ArrayPaginatorBundle\Services\ArrayPaginator
-        arguments: ['%poznet_array_paginator_perpage%']
+        arguments: [@request_stack,'%poznet_array_paginator_perpage%']
 
     poznet.paginator.twig_extension:
             class: Poznet\ArrayPaginatorBundle\Twig\Extension\ArrayPaginationExtension

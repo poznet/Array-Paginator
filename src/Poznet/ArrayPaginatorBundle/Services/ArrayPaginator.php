@@ -8,25 +8,27 @@
 
 namespace Poznet\ArrayPaginatorBundle\Services;
 
-
+use Symfony\Component\HttpFoundation\RequestStack;
 
 
 class ArrayPaginator
 {
-    private $container;
+
     private $target;
     private $perpage=20;
     private $pages;
     private $count;
     private $page=0;
     private $param;
+    private $request_stack;
 
 
-    public function __construct($param=null){
+    public function __construct(RequestStack $request_stack,$param=null){
+        $this->request_stack=$request_stack;
         $this->paramr=$param;
 
-            if(!empty($this->param ))
-                $this->perpage=$this->param ;
+            if(!empty($this->param['perpage'] ))
+                $this->perpage=$this->param['perpage'] ;
 
 
     }
@@ -36,7 +38,7 @@ class ArrayPaginator
         $this->target=$target;
         $this->count=count($target);
         $this->pages=ceil($this->count/$this->perpage);
-        $request=$this->container->get('request_stack')->getCurrentRequest();
+        $request=$this->request_stack->getCurrentRequest();
         $strona=$request->get('strona');
 
         if($strona){
@@ -53,7 +55,7 @@ class ArrayPaginator
 
     public function paginationForView(){
         $output='';
-        $request=$this->container->get('request_stack')->getCurrentRequest();
+        $request=$this->request_stack->getCurrentRequest();
 
         for($i=0;$i<$this->pages;$i++){
             if($i==$request->get('strona')){
