@@ -8,15 +8,15 @@
 
 namespace Poznet\ArrayPaginatorBundle\Twig\Extension;
 
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use Poznet\ArrayPaginatorBundle\Services\ArrayPaginator as Paginator
 
 
 class ArrayPaginationExtension extends \Twig_Extension
 {
-    private $container;
+    private $paginator;
 
-    public function __construct(ContainerInterface $container){
-        $this->container=$container;
+    public function __construct(Paginator $paginator){
+        $this->paginator=$paginator;
     }
 
 
@@ -30,7 +30,7 @@ class ArrayPaginationExtension extends \Twig_Extension
 
 
     public function getPaginaation(){
-        return $this->container->get('poznet.array.paginator')->paginationForView();
+        return $this->paginator->paginationForView();
     }
     public function getName()
     {

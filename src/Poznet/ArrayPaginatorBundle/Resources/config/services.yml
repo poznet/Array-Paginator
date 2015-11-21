@@ -5,7 +5,7 @@ services:
 
     poznet.paginator.twig_extension:
             class: Poznet\ArrayPaginatorBundle\Twig\Extension\ArrayPaginationExtension
-            arguments: [ @service_container ]
+            arguments: [ @poznet.array.paginator ]
             tags:
                 - { name: twig.extension }
 
