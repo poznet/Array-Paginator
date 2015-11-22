@@ -1,9 +1,16 @@
 {
     "name": "poznet/arraypaginator",
-    "description": "Simple  array pagination in view ",
+    "description": "Simple array pagination in view ",
+    "keywords": ["pagination","array paginator","array pagination"],
     "homepage": "https://github.com/poznet/Array-Paginator",
     "license": "MIT",
-    
+    "authors": [
+        {
+            "name": "Michal Glajc / poznet",
+            "email": "pozycjoner.net@gmail.com",
+            "homepage": "http://glajc.pl"
+        }
+    ],
     "require": {
         "php": ">=5.3"
        
