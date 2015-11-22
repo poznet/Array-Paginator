@@ -13,14 +13,16 @@ Simple :
 
 ###Usage
 
-in parameters define how much element's you want to show on eah page : 
+**in parameters**
+
+define how much element's you want to show on eah page : 
 ```
 parameters:
     poznet_array_paginator:
       - perpage: 9
 ```
 
-in Controller
+**in Controller**
 ```
 $tab=array();
 $pagination=$this->get('poznet.array.paginator')->paginate($tab);
@@ -28,7 +30,7 @@ $pagination=$this->get('poznet.array.paginator')->paginate($tab);
 return array('pagination'=>$pagination);
 ```        
 
-in View
+**in View**
 - render array elements as normally ( foreach ) 
 - in place where you want to have pagination add twig function 
  `{{ pagination()  }} `
