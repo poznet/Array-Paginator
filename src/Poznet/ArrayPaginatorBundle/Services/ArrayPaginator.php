@@ -25,7 +25,7 @@ class ArrayPaginator
 
     public function __construct(RequestStack $request_stack,$param=null){
         $this->request_stack=$request_stack;
-        $this->paramr=$param;
+        $this->param=$param;
 
             if(!empty($this->param[0]['perpage'] ))
                 $this->perpage=$this->param[0]['perpage'] ;
