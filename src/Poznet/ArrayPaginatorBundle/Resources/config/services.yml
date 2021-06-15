@@ -1,11 +1,11 @@
 services:
     poznet.array.paginator:
         class: Poznet\ArrayPaginatorBundle\Services\ArrayPaginator
-        arguments: [@request_stack,'%poznet_array_paginator%']
+        arguments: ["@request_stack",'%poznet_array_paginator%']
 
     poznet.paginator.twig_extension:
             class: Poznet\ArrayPaginatorBundle\Twig\Extension\ArrayPaginationExtension
-            arguments: [ @poznet.array.paginator ]
+            arguments: [ "@poznet.array.paginator" ]
             tags:
                 - { name: twig.extension }
 
